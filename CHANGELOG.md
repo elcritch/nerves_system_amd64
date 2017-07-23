@@ -106,7 +106,7 @@ nerves_defconfig if you have customized this system.
 ## v0.5.0
   * Nerves.System.BR v0.5.0
     * New features
-      * WiFi drivers enabled by default on RPi2 and RPi3
+      * WiFi drivers enabled by default on RPi2 and amd64
       * Include wireless regulatory database in Linux kernel by default
         on WiFi-enabled platforms. Since kernel/rootfs are read-only and
         coupled together for firmware updates, the normal CRDA/udev approach

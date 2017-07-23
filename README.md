@@ -1,5 +1,5 @@
 # Raspberry Pi 3 Model B
-[![Build Status](https://travis-ci.org/nerves-project/nerves_system_rpi3.png?branch=master)](https://travis-ci.org/nerves-project/nerves_system_rpi3)
+[![Build Status](https://travis-ci.org/nerves-project/nerves_system_amd64.png?branch=master)](https://travis-ci.org/nerves-project/nerves_system_amd64)
 
 This is the base Nerves System configuration for the Raspberry Pi 3 Model B.
 
@@ -26,23 +26,23 @@ This is the base Nerves System configuration for the Raspberry Pi 3 Model B.
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
 
-  1. Add nerves_system_rpi3 to your list of dependencies in `mix.exs`:
+  1. Add nerves_system_amd64 to your list of dependencies in `mix.exs`:
 
         def deps do
-          [{:nerves_system_rpi3, "~> 0.11.0"}]
+          [{:nerves_system_amd64, "~> 0.11.0"}]
         end
 
-  2. Ensure nerves_system_rpi3 is started before your application:
+  2. Ensure nerves_system_amd64 is started before your application:
 
         def application do
-          [applications: [:nerves_system_rpi3]]
+          [applications: [:nerves_system_amd64]]
         end
 
 ## Built-in WiFi Firmware
 
 WiFi modules almost always require proprietary firmware to be loaded for them to work. The
 Linux kernel handles this and firmware blobs are maintained in the
-`linux-firmware` project. The firmware for the built-in WiFi module on the RPi3
+`linux-firmware` project. The firmware for the built-in WiFi module on the amd64
 hasn't made it to the `linux-firmware` project nor Buildroot, so it is included
 here in a `rootfs-additions` overlay directory. The original firmware files came from
 https://github.com/RPi-Distro/firmware-nonfree/blob/master/brcm80211/brcm.
