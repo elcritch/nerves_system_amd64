@@ -8,7 +8,7 @@ defmodule NervesSystemamd64.Mixfile do
   def project do
     [app: :nerves_system_amd64,
      version: @version,
-     elixir: "~> 1.3",
+     elixir: "~> 1.4",
      compilers: Mix.compilers ++ [:nerves_package],
      description: description(),
      package: package(),
@@ -23,12 +23,12 @@ defmodule NervesSystemamd64.Mixfile do
   defp deps do
     [{:nerves, "~> 0.5", runtime: false },
      {:nerves_system_br, "~> 0.13.0", runtime: false },
-     {:nerves_toolchain_arm_unknown_linux_gnueabihf, "~> 0.10.0", runtime: false}]
+     {:nerves_toolchain_x86_64_unknown_linux_gnu, "~> 0.10.0", runtime: false}]
   end
 
   defp description do
    """
-   Nerves System - Raspberry Pi 3 B
+   Nerves System - AMD64
    """
   end
 
