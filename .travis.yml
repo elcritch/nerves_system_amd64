@@ -21,7 +21,7 @@ cache:
       - $HOME/.nerves/cache/buildroot
 
 env:
-  - NERVES_TARGET=amd64 CI_SYSTEM_NAME=nerves_system_$NERVES_TARGET REPO=nerves-project/$CI_SYSTEM_NAME NERVES_SYSTEM_CACHE=none NERVES_SYSTEM_COMPILER=local NERVES_PACKAGE=`pwd`
+  - NERVES_TARGET=amd64 CI_SYSTEM_NAME=nerves_system_$NERVES_TARGET REPO=$TRAVIS_REPO_SLUG NERVES_SYSTEM_CACHE=none NERVES_SYSTEM_COMPILER=local NERVES_PACKAGE=`pwd`
 
 before_install:
   - git clone https://github.com/elixir-lang/elixir
@@ -54,6 +54,7 @@ script:
 # Deploy the build products
 before_deploy:
     - cd $NERVES_PACKAGE/.nerves/artifacts/*
+    - ls
     - make system
     - cd $NERVES_PACKAGE
     - $NERVES_PACKAGE/deps/nerves_system_br/scripts/ci-deploy.sh
@@ -69,17 +70,17 @@ deploy:
     on:
       repo: $REPO
       tags: true
-  - provider: s3
-    access_key_id: $S3_ID
-    secret_access_key: $S3_KEY
-    bucket: $S3_BUCKET
-    skip_cleanup: true
-    local_dir: artifacts
-    upload-dir: test
-    acl: public_read
-    on:
-      repo: $REPO
-      all_branches: true
+  # - provider: s3
+  #   access_key_id: $S3_ID
+  #   secret_access_key: $S3_KEY
+  #   bucket: $S3_BUCKET
+  #   skip_cleanup: true
+  #   local_dir: artifacts
+  #   upload-dir: test
+  #   acl: public_read
+  #   on:
+  #     repo: $REPO
+  #     all_branches: true
 
 # Display build log on failure
 after_failure:
