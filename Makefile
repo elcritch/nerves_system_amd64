@@ -8,14 +8,13 @@ all:
 	echo "Compiling version ${VERSION} from git revisioon ${GIT_REVISION}"
 	mix deps.get
 	mix compile
-	# nerves_toolchain_x86_64_unknown_linux_gnu-0.10.0.linux-x86_64.tar.xz
-	cd .nerves/artifacts/nerves_system_amd64-${VERSION}.x86_64_unknown_linux_gnu/ && \
+	cd .nerves/artifacts/nerves_system_orangepi_zero-${VERSION}.arm_unknown_linux_gnueabihf/ && \
 	make system
 
 copy:
-	cp -v .nerves/artifacts/nerves_system_amd64-${VERSION}.arm_unknown_linux_gnueabihf/images/nerves_system_amd64.fw $(OUTDIR)/nerves_system_amd64-v${VERSION}.fw
-	cp -v .nerves/artifacts/nerves_system_amd64-${VERSION}.arm_unknown_linux_gnueabihf/nerves_system_amd64.tar.gz $(OUTDIR)/nerves_system_amd64-v${VERSION}.tar.gz
-	md5sum $(OUTDIR)/nerves_system_amd64-v${VERSION}.fw $(OUTDIR)/nerves_system_amd64-v${VERSION}.tar.gz
+	cp -v .nerves/artifacts/nerves_system_orangepi_zero-${VERSION}.arm_unknown_linux_gnueabihf/images/nerves_system_orangepi_zero.fw $(OUTDIR)/nerves_system_orangepi_zero-v${VERSION}.fw
+	cp -v .nerves/artifacts/nerves_system_orangepi_zero-${VERSION}.arm_unknown_linux_gnueabihf/nerves_system_orangepi_zero.tar.gz $(OUTDIR)/nerves_system_orangepi_zero-v${VERSION}.tar.gz
+	md5sum $(OUTDIR)/nerves_system_orangepi_zero-v${VERSION}.fw $(OUTDIR)/nerves_system_orangepi_zero-v${VERSION}.tar.gz
 
 setup:
 	mix local.hex

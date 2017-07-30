@@ -5,26 +5,26 @@ version =
   |> File.read!
   |> String.strip
 
-pkg = :nerves_system_amd64
+pkg = :nerves_system_orangepi_zero
 
 config pkg, :nerves_env,
   type: :system,
   version: version,
   compiler: :nerves_package,
   artifact_url: [
-    "https://github.com/elcritch/#{pkg}/releases/download/v#{version}/#{pkg}-v#{version}.tar.gz",
+    "https://github.com/BrightAgrotech/#{pkg}/releases/download/v#{version}/#{pkg}-v#{version}.tar.gz",
   ],
   platform: Nerves.System.BR,
   platform_config: [
     defconfig: "nerves_defconfig",
   ],
   checksum: [
-    "nerves_defconfig",
+    "linux",
     "rootfs-additions",
-    "linux-4.4.defconfig",
     "fwup.conf",
-    "cmdline.txt",
-    "config.txt",
+    "nerves_defconfig",
+    "nerves.exs",
     "post-createfs.sh",
+    "uboot-script.cmd",
     "VERSION"
   ]

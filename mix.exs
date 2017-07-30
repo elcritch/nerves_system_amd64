@@ -1,4 +1,4 @@
-defmodule NervesSystemamd64.Mixfile do
+defmodule NervesSystemRpi3.Mixfile do
   use Mix.Project
 
   @version Path.join(__DIR__, "VERSION")
@@ -6,7 +6,7 @@ defmodule NervesSystemamd64.Mixfile do
     |> String.strip
 
   def project do
-    [app: :nerves_system_amd64,
+    [app: :nerves_system_orangepi_zero,
      version: @version,
      elixir: "~> 1.4",
      compilers: Mix.compilers ++ [:nerves_package],
@@ -21,21 +21,33 @@ defmodule NervesSystemamd64.Mixfile do
   end
 
   defp deps do
-    [{:nerves, "~> 0.6.1", runtime: false },
-     {:nerves_system_br, "~> 0.12.1", runtime: false },
-     {:nerves_toolchain_x86_64_unknown_linux_gnu, "~> 0.10.0", runtime: false}]
+    [{:nerves, "~> 0.5.1", runtime: false },
+     {:nerves_system_br, "~> 0.13.0", runtime: false },
+     {:nerves_toolchain_arm_unknown_linux_gnueabihf, "~> 0.10.0", runtime: false}]
   end
 
   defp description do
    """
-   Nerves System - AMD64
+   Nerves System - NanoPi Neo
    """
   end
 
   defp package do
-   [maintainers: ["Frank Hunleth", "Justin Schneck"],
-    files: ["LICENSE", "mix.exs", "nerves_defconfig", "nerves.exs", "README.md", "VERSION", "rootfs-additions", "fwup.conf", "cmdline.txt", "linux-4.4.defconfig", "config.txt", "post-createfs.sh"],
-    licenses: ["Apache 2.0"],
-    links: %{"Github" => "https://github.com/elcritch/nerves_system_amd64"}]
+    [maintainers: [ "Jaremy Creechley <creechley@gmail.com>" ],
+    files: [
+        "rootfs-additions",
+        "LICENSE",
+        "mix.exs",
+        "nerves_defconfig",
+        "nerves.exs",
+        "README.md",
+        "VERSION",
+        "fwup.conf",
+        "post-createfs.sh",
+        "uboot-script.cmd",
+        "linux",
+        ],
+     licenses: ["Apache 2.0"],
+     links: %{"Github" => "https://github.com/BrightAgrotech/nerves_system_orangepi_zero"}]
   end
 end
