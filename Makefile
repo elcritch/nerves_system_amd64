@@ -1,0 +1,32 @@
+
+VERSION := $(shell cat ./VERSION)
+GIT_REVISION := $(shell git rev-parse HEAD)
+
+OUTDIR ?= ~/Images
+
+all:
+	echo "Compiling version ${VERSION} from git revisioon ${GIT_REVISION}"
+	mix deps.get
+	mix compile
+	# nerves_toolchain_x86_64_unknown_linux_gnu-0.10.0.linux-x86_64.tar.xz
+	cd .nerves/artifacts/nerves_system_amd64-${VERSION}.x86_64_unknown_linux_gnu/ && \
+	make system
+
+copy:
+	cp -v .nerves/artifacts/nerves_system_amd64-${VERSION}.arm_unknown_linux_gnueabihf/images/nerves_system_amd64.fw $(OUTDIR)/nerves_system_amd64-v${VERSION}.fw
+	cp -v .nerves/artifacts/nerves_system_amd64-${VERSION}.arm_unknown_linux_gnueabihf/nerves_system_amd64.tar.gz $(OUTDIR)/nerves_system_amd64-v${VERSION}.tar.gz
+	md5sum $(OUTDIR)/nerves_system_amd64-v${VERSION}.fw $(OUTDIR)/nerves_system_amd64-v${VERSION}.tar.gz
+
+setup:
+	mix local.hex
+	mix local.rebar
+	mix archive.install https://github.com/nerves-project/archives/raw/master/nerves_bootstrap.ez
+	mix local.nerves
+
+clean:
+	rm -Rf .nerves/artifacts/
+	rm -Rf _build
+
+dist-clean: clean
+	rm -Rf .nerves/
+	rm -Rf _build
