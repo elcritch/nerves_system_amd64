@@ -21,8 +21,8 @@ defmodule NervesSystemamd64.Mixfile do
   end
 
   defp deps do
-    [{:nerves, "~> 0.5", runtime: false },
-     {:nerves_system_br, "~> 0.13.0", runtime: false },
+    [{:nerves, "~> 0.6.1", runtime: false },
+     {:nerves_system_br, "~> 0.12.1", runtime: false },
      {:nerves_toolchain_x86_64_unknown_linux_gnu, "~> 0.10.0", runtime: false}]
   end
 
@@ -36,6 +36,6 @@ defmodule NervesSystemamd64.Mixfile do
    [maintainers: ["Frank Hunleth", "Justin Schneck"],
     files: ["LICENSE", "mix.exs", "nerves_defconfig", "nerves.exs", "README.md", "VERSION", "rootfs-additions", "fwup.conf", "cmdline.txt", "linux-4.4.defconfig", "config.txt", "post-createfs.sh"],
     licenses: ["Apache 2.0"],
-    links: %{"Github" => "https://github.com/nerves-project/nerves_system_amd64"}]
+    links: %{"Github" => "https://github.com/elcritch/nerves_system_amd64"}]
   end
 end
