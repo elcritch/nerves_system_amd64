@@ -1,6 +1,6 @@
 # Orange Pi Zero Black
 
-[![Build Status](https://travis-ci.org/BrightAgrotech/nerves_system_orangepi_zero.png?branch=master)](https://travis-ci.org/BrightAgrotech/nerves_system_orangepi_zero)
+[![Build Status](https://travis-ci.org/BrightAgrotech/nerves_system_amd64.png?branch=master)](https://travis-ci.org/BrightAgrotech/nerves_system_amd64)
 
 This is the base Nerves System configuration for the [Orange P Zero](http://www.orangepi.org/orangepizero/).
 
@@ -133,16 +133,16 @@ The base image includes drivers and firmware for Ralink RT53xx
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
 
-  1. Add nerves_system_orangepi_zero to your list of dependencies in `mix.exs`:
+  1. Add nerves_system_amd64 to your list of dependencies in `mix.exs`:
 
         def deps do
-          [{:nerves_system_orangepi_zero, "~> 0.1.0"}]
+          [{:nerves_system_amd64, "~> 0.1.0"}]
         end
 
-  2. Ensure nerves_system_orangepi_zero is started before your application:
+  2. Ensure nerves_system_amd64 is started before your application:
 
         def application do
-          [applications: [:nerves_system_orangepi_zero]]
+          [applications: [:nerves_system_amd64]]
         end
 
 
