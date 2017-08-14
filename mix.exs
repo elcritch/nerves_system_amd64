@@ -23,7 +23,7 @@ defmodule NervesSystemRpi3.Mixfile do
   defp deps do
     [{:nerves, "~> 0.7.1", runtime: false },
      {:nerves_system_br, "~> 0.13.3", runtime: false },
-     {:nerves_toolchain_arm_unknown_linux_gnueabihf, "~> 0.10.0", runtime: false}]
+     {:nerves_toolchain_x86_64_unknown_linux_gnueabihf, "~> 0.10.0", runtime: false}]
   end
 
   defp description do
