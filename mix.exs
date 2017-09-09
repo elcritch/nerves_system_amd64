@@ -48,6 +48,6 @@ defmodule NervesSystemRpi3.Mixfile do
         "linux",
         ],
      licenses: ["Apache 2.0"],
-     links: %{"Github" => "https://github.com/BrightAgrotech/nerves_system_amd64"}]
+     links: %{"Github" => "https://github.com/elcritch/nerves_system_amd64"}]
   end
 end

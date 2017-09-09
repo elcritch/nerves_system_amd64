@@ -1,6 +1,6 @@
 # Orange Pi Zero Black
 
-[![Build Status](https://travis-ci.org/BrightAgrotech/nerves_system_amd64.png?branch=master)](https://travis-ci.org/BrightAgrotech/nerves_system_amd64)
+[![Build Status](https://travis-ci.org/elcritch/nerves_system_amd64.png?branch=master)](https://travis-ci.org/elcritch/nerves_system_amd64)
 
 This is the base Nerves System configuration for the [Orange P Zero](http://www.orangepi.org/orangepizero/).
 
