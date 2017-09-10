@@ -44,7 +44,6 @@ defmodule NervesSystemRpi3.Mixfile do
         "VERSION",
         "fwup.conf",
         "post-createfs.sh",
-        "uboot-script.cmd",
         "linux",
         ],
      licenses: ["Apache 2.0"],
